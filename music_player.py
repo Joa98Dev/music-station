@@ -2,6 +2,7 @@
 from tkinter import *
 from tkinter import filedialog
 import tkinter as tk
+from tkinter.messagebox import showinfo, showerror, askyesno
 import pygame.mixer as mixer
 import os
 
@@ -34,7 +35,6 @@ def stop_music(status: StringVar):
 
 # Load music function
 def load_music(listbox):
-    #listbox.delete(0, tk.END)
     os.chdir(filedialog.askdirectory(title="Open a song directory"))
     tracks = os.listdir()
 
@@ -114,8 +114,20 @@ load_button = Button(button_frame, text='Load', bg='Aqua', font=('Georgia', 13),
 
 load_button.place(x=15, y=55)
 
+
+
 # Label that tells the status of the song
 Label(root, textvariable=song_status, bg='SteelBlue', font=('Times', 8), justify=LEFT).pack(side=BOTTOM, fill=X)
+
+def reset_list(playlist):
+    if askyesno(title='Reset List', message='Are you sure you want to reset the playlist?'):
+        playlist.delete(0, END)
+
+# Reste button
+reset_button = Button(button_frame, text='Reset', bg='Aqua', font=('Georgia, 13'), width=7,
+                    command=lambda: reset_list(playlist))
+
+reset_button.place(x=105, y=55)
 
 root.update()
 root.mainloop()
