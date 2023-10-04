@@ -12,14 +12,14 @@ mixer.init()
 # App GUI
 root = Tk()
 root.geometry('700x220')
-root.title('Music Player App')
+root.title('Music Station')
 root.resizable(0,0)
 root.attributes("-alpha", 0.8)
 
 
 # Setting the app icon
-#inco_path = ''
-#root.iconbitmap(icon_path)
+icon_path = "icon.ico"
+root.iconbitmap(icon_path)
 
 # Play music function
 def play_music(song_name: StringVar, song_list: Listbox, status: StringVar):
