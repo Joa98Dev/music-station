@@ -1,6 +1,6 @@
 # Libraries
 from tkinter import *
-from tkinter import filedialog
+from tkinter import filedialog, ttk
 import tkinter as tk
 from tkinter.messagebox import showinfo, showerror, askyesno
 import pygame.mixer as mixer
@@ -68,10 +68,14 @@ song_status = StringVar(root, value='<Not Selected>')
 
 # Placing all the widget in each label
 # Playlist (Listbox)
-playlist = Listbox(Listbox_frame, font=('Helvetica', 11), selectbackground='#faaab4', bg='#131313', highlightthickness=0, border=0, fg='#faaab4')
+playlist = Listbox(Listbox_frame, font=('Antipasto Pro DemiBold', 12), selectbackground='#faaab4', bg='#131313', highlightthickness=0, border=0, fg='#faaab4')
+
+# Scrollbar themed
+style = ttk.Style()
+style.configure("CustomScrollbar.Vertical.TScrollbar", troughcolor="#131313", slidercolor="#faaab4")
 
 # Add a scrollbar to the playlist section
-scroll_bar = Scrollbar(Listbox_frame, orient=VERTICAL)
+scroll_bar = ttk.Scrollbar(Listbox_frame, orient=VERTICAL, style="CustomScrollbar.Vertical.TScrollbar")
 scroll_bar.pack(side=RIGHT, fill=BOTH)
 
 
@@ -81,45 +85,45 @@ scroll_bar.config(command=playlist.yview)
 playlist.pack(fill=BOTH, padx=5, pady=5)
 
 # MusicFrames
-Label(music_frame, text='Currently playing:', fg='#faaab4', bg='#131313', font=('Times', 10, 'bold' )).place(x=5, y=20)
+Label(music_frame, text='Currently playing:', fg='#faaab4', bg='#131313', font=('Antipasto Pro DemiBold', 10, 'bold' )).place(x=5, y=20)
 
-song_label = Label(music_frame, textvariable=current_song, bg='#faaab4', font=('Times', 12), width=25)
+song_label = Label(music_frame, textvariable=current_song, bg='#faaab4', font=('Antipasto Pro DemiBold', 12), width=25)
 song_label.place(x=150, y=20)
 
 # Buttons showing on the control buttons label
 # Pause button
-pause_button = Button(button_frame, text='Pause', fg='#faaab4', bg='#131313', bd=0, font=('Georgia', 13), width=7,
+pause_button = Button(button_frame, text='Pause', fg='#faaab4', bg='#131313', bd=0, font=('Antipasto Pro DemiBold', 13), width=7,
                     command=lambda: paused_music(song_status))
 
 pause_button.place(x=15, y=10)
 
 # Stop button
-stop_button = Button(button_frame, text='Stop', fg='#faaab4', bg='#131313', bd=0, font=('Georgia', 13), width=7,
+stop_button = Button(button_frame, text='Stop', fg='#faaab4', bg='#131313', bd=0, font=('Antipasto Pro DemiBold', 13), width=7,
                     command=lambda: stop_music(song_status))
 
 stop_button.place(x=105, y=10)
 
 # Play button
-play_button = Button(button_frame, text='Play', fg='#faaab4', bg='#131313', bd=0, font=('Georgia', 13), width=7,
+play_button = Button(button_frame, text='Play', fg='#faaab4', bg='#131313', bd=0, font=('Antipasto Pro DemiBold', 13), width=7,
                     command=lambda: play_music(current_song, playlist, song_status))
 
 play_button.place(x=195, y=10)
 
 # Resume button
-resume_button = Button(button_frame, text='Resume', fg='#faaab4', bg='#131313', bd=0, font=('Georgia', 13), width=7,
+resume_button = Button(button_frame, text='Resume', fg='#faaab4', bg='#131313', bd=0, font=('Antipasto Pro DemiBold', 13), width=7,
                     command=lambda: resume_music(song_status))
 
 resume_button.place(x=285, y=10)
 
 # Load button
-load_button = Button(button_frame, text='Load', fg='#faaab4', bg='#131313', bd=0, font=('Georgia', 13), width=7,
+load_button = Button(button_frame, text='Load', fg='#faaab4', bg='#131313', bd=0, font=('Antipasto Pro DemiBold', 13), width=7,
                     command=lambda: load_music(playlist))
 
 load_button.place(x=15, y=55)
 
 
 # Label that tells the status of the song
-Label(root, textvariable=song_status, bg='#faaab4', font=('Times', 8), justify=LEFT).pack(side=BOTTOM, fill=X)
+Label(root, textvariable=song_status, bg='#faaab4', font=('Antipasto Pro DemiBold', 8), justify=LEFT).pack(side=BOTTOM, fill=X)
 
 def reset_list(playlist, current_song):
     if askyesno(title='Reset List', message='Are you sure you want to reset the playlist?'):
@@ -128,7 +132,7 @@ def reset_list(playlist, current_song):
         
 
 # Reste button
-reset_button = Button(button_frame, text='Reset', fg='#faaab4', bg='#131313', bd=0, font=('Georgia, 13'), width=7,
+reset_button = Button(button_frame, text='Reset', fg='#faaab4', bg='#131313', bd=0, font=('Antipasto Pro DemiBold', 13), width=7,
                     command=lambda: reset_list(playlist, current_song))
 
 reset_button.place(x=105, y=55)
