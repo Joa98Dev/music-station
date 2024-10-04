@@ -1,3 +1,4 @@
+# Libraries
 from tkinter import *
 import tkinter as tk
 from tkinter import filedialog, ttk
@@ -88,5 +89,5 @@ song_label.place(x=150, y=20)
 Label(root, textvariable=song_status, bg='#faaab4', font=('Antipasto Pro DemiBold', 8), justify=LEFT).pack(side=BOTTOM, fill=X)
 
 
-root.update()
-root.mainloop()
+root.update() # Update the GUI
+root.mainloop() # Keeps the app running

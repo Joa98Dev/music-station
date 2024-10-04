@@ -5,17 +5,27 @@ from tkinter.messagebox import askyesno
 
 
 
+# Load music function
 def load_music(listbox):
-    # Open a file dialog to select multiple mp3 files
-    files = filedialog.askopenfilenames(title="Select MP3 Files", filetypes=[("MP3 Files", "*.mp3")])
+    # Allow the user to select multiple MP3 files from any directory
+    file_paths = filedialog.askopenfilenames(
+        title="Select Music Files",
+        filetypes=[("MP3 Files", "*.mp3"), ("All Files", "*.*")]
+    )
     
-    if not files:
-        return  # If the user cancels, do nothing
-    
-    # Add selected files to the playlist listbox
-    for file in files:
-        filename = os.path.basename(file)  # Get the filename only
-        listbox.insert(END, filename)
+    if not file_paths:
+        return  # If no files were selected, exit the function
+
+    # Clear the existing items in the listbox
+    listbox.delete(0, END)
+
+    # Store the full file paths in a list
+    listbox.file_paths = file_paths
+
+    # Loop through the selected file paths and add each file's name to the listbox
+    for file_path in file_paths:
+        file_name = os.path.basename(file_path)
+        listbox.insert(END, file_name)
 
 # Reset the playlist
 def reset_list(playlist, current_song):
