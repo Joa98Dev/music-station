@@ -10,7 +10,7 @@ def load_music(listbox):
     # Allow the user to select multiple MP3 files from any directory
     file_paths = filedialog.askopenfilenames(
         title="Select Music Files",
-        filetypes=[("MP3 Files", "*.mp3"), ("All Files", "*.*")]
+        filetypes=[("MP3 Files", "*.mp3"), ("OGG Files", "*.ogg"), ("All Files", "*.*")]
     )
     
     if not file_paths:
