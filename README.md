@@ -1,6 +1,6 @@
 # Music Station 📻
 
-This is a simple music player made with python, using the Tkinter and Pygame libraries.
+A simple and minimal music player built with Python, using the Tkinter and Pygame libraries. This is an improved version of an old project I created, where I optimized the code, restructured the app, and applied better programming practices.
 
 ## How to use it? 🤔
 
