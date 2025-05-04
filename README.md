@@ -29,7 +29,7 @@ A Python-based music player application built with Pygame and Tkinter, supportin
 
 ### 🐧 Linux (Ubuntu)
 
-    ```bash
+```
 # Install Python and Git
 sudo apt update && sudo apt install python3 python3-pip git
 
@@ -50,7 +50,7 @@ python main.py
 
 ### 🐧 Linux (Arch)
 
-```bash
+```
 # Install Python and Git
 sudo pacman -S python python-pip git
 
